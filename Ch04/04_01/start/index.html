@@ -19,21 +19,26 @@
             const Lake = ({name}) => <h1>{name}</h1>;
 
             class App extends React.Component {
-                state = {
-                    loggedIn: false
-                }
-                render() {
-                    return (
-                        <div>
-                            <div>The user is {this.state.loggedIn ? "logged in" : "not logged in"}.</div>
-                            <Lake name="Lake Tahoe" />
-                            <Lake name="Angora Lake" />
-                            <Lake name="Shirley Lake" />
-                            <Lake name="Cathedral Lake" />
-                        </div>
-                    )
-                }
+            state = {
+                loggedIn: false
             }
+
+            logIn = () => this.setState({loggedIn: true})
+            logOut = () => this.setState({loggedIn: false})
+            render() {
+                return (
+                    <div>
+                    <button onClick={this.logIn} >Log In</button>
+                    <button onClick={this.logOut} >Log Out</button>
+                        <div> The use is {this.state.loggedIn ? "logged in" : "not logged in."} </div>
+                        <Lake name="Lake Tahoe" />
+                        <Lake name="Angora Lake" />
+                        <Lake name="Shirley Lake" />
+                        <Lake name="Cathedral Lake" />
+                    </div>
+                )
+            }
+        }
             
             ReactDOM.render(
                 <App />,
