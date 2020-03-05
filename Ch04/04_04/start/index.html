@@ -16,18 +16,19 @@
         <div id="root"></div>
         <script type="text/babel">
             
+             
             const lakeList = [
-                "Echo Lake", 
-                "Maud Lake", 
-                "Cascade Lake"
-            ];
+               {id:1, name:  "Echo Lake", trailhead:  "Echo Lake"},
+               {id:2, name:  "Maud Lake", trailhead:  "Wright's Lake"},
+               {id:3, name:  "Cascade Lake", trailhead:  "Bayview"}
+                ]
 
             const App = ({lakes}) => (
-                <ul>
-                    {lakes.map((lake, i) => 
-                        <li key={i}>{lake}</li>    
-                    )}
-                </ul>
+              <ul>
+              {lakes.map((lake , i) =>
+              <li key={i}>{lake.name} | Trailhead: {lake.trailhead}</li>
+              )}
+              </ul>
             )
             
             ReactDOM.render(
